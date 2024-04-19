@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="text-center mt-5">
+    <h2 class="fs-3 pt-3 pb-2">新規登録</h2>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-6">
+      <%#= form_with model: resource, as: resource_name, url: user_registration_path(resource_name), local: true do |f| %> 
+      <%#= form_with model: resource, as: resource_name, url: user_registration_path, local: true do |f| %>
+      <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%#= render "devise/shared/error_messages", resource: resource %>
+      <%= render 'shared/validation_error', instance: resource %>
+      <!--<%# if resource.errors.any? %>-->
+      <!--  <div class="form__errors">-->
+      <!--    <h3><%#= resource.errors.count %>件のエラーが発生しました</h3>-->
+      <!--    <ul>-->
+      <!--      <%# resource.errors.full_messages.each do |message| %>-->
+      <!--        <li><%#= message %></li>-->
+      <!--      <%# end %>-->
+      <!--    </ul>-->
+      <!--  </div>-->
+      <!--<%# end %>-->
+      
+        <div class="mb-4">
+          <%= f.label :username, "ユーザーネーム（必須）", class: "text-secondary fw-bold mb-2" %>
+          <!--<span class="p_required">必須</span>-->
+          <%= f.text_field :username, class: "form-control shadow-sm py-md-3" %>
+        </div>
+        <!--<div class="field">-->
+          <%#= f.label :email %>
+          <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <!--</div>-->
+        <div class="mb-4">
+          <%= f.label :email, "メールアドレス（必須）", class: "text-secondary fw-bold mb-2" %>
+          <!--<span class="p_required">必須</span>-->
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control shadow-sm py-md-3" %>
+        </div>
+      
+        <!--<div class="field">-->
+          <%#= f.label :password %>
+          <%# if @minimum_password_length %>
+          <!--<em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+          <!--<%# end %><br />-->
+          <%#= f.password_field :password, autocomplete: "new-password" %>
+        <!--</div>-->
+        <div class="mb-4">
+          <%= f.label :password, "パスワード（必須）", class: "text-secondary fw-bold mb-2" %>
+          <!--<span class="p_required">必須</span>-->
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上)</em>
+            <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control shadow-sm py-md-3" %>
+        </div>
+        
+        <!--<div class="field">-->
+        <!--  <%#= f.label :password_confirmation %><br />-->
+        <!--  <%#= f.password_field :password_confirmation, autocomplete: "new-password" %>-->
+        <!--</div>-->
+        <div class="mb-4">
+          <%= f.label :password_confirmation, "パスワード確認（必須）", class: "text-secondary fw-bold mb-2" %>
+          <!--<span class="p_required">必須</span>-->
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control shadow-sm py-md-3" %>
+        </div>
+        
+        <div class="mb-4">
+          <%= f.label :zip_code, "郵便番号(任意)", class: "text-secondary fw-bold mb-2" %>
+          <!--<span class="p_required">必須</span>-->
+          <%= f.text_field :zip_code, class: "form-control shadow-sm py-md-3" %>
+        </div>
+        <!--<div class="actions">-->
+        <!--  <%#= f.submit "Sign up" %>-->
+        <!--</div>-->
+        <div class="text-center">
+          <%= f.submit "新規登録", class: " shadow-sm fw-bold mt-4 px-5 py-3" %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
+ 
+<%# end %>
+
+<%#= render "devise/shared/links" %>

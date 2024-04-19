@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="text-center mt-5">
+    <h2>アカウント編集 <%#= resource_name.to_s.humanize %></h2>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-10 col-md-6">
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+      <%#= render "devise/shared/error_messages", resource: resource %>
+      <%= render 'shared/validation_error', instance: resource %>
+      
+      <!--<%# if resource.errors.any? %>-->
+      <!--  <div class="form__errors">-->
+      <!--    <h3><%#= resource.errors.count %>件のエラーが発生しました</h3>-->
+      <!--    <ul>-->
+      <!--      <%# resource.errors.full_messages.each do |message| %>-->
+      <!--        <li><%#= message %></li>-->
+      <!--      <%# end %>-->
+      <!--    </ul>-->
+      <!--  </div>-->
+      <!--<%# end %>-->
+        
+        <div class="mb-4">
+          <%= f.label :username, "ユーザーネーム", class: "text-secondary fw-bold mb-2" %>
+          <!--<span class="p_required">必須</span>-->
+          <%= f.text_field :username, class: "form-control shadow-sm py-md-3" %>
+        </div>
+        
+        <div class="mb-4">
+          <%= f.label :email, "メールアドレス", class: "text-secondary fw-bold mb-2" %>
+          <!--<span class="p_required">必須</span>-->
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control shadow-sm py-md-3" %>
+        </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+        <!--<div class="field">-->
+        <!--  <%#= f.label :email %><br />-->
+        <!--  <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>-->
+        <!--</div>-->
+        
+        <div class="mb-4">
+          <%= f.label :current_password, "現在のパスワード（必須）", class: "text-secondary fw-bold mb-2" %>
+          <!--<span class="p_required">必須</span>-->
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control shadow-sm py-md-3" %>
+        </div>
+        <!--<div class="field">-->
+        <!--  <%#= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />-->
+        <!--  <%#= f.password_field :current_password, autocomplete: "current-password" %>-->
+        <!--</div>-->
+        
+         <div class="mb-4">
+          <%= f.label :password, "パスワード", class: "text-secondary fw-bold mb-2" %><i>(変更したくない場合は空白のままにしてください)</i><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control shadow-sm py-md-3" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> 文字以上</em>
+          <% end %>
+        </div>
+        
+        <!--<div class="field">-->
+        <!--  <%#= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />-->
+        <!--  <%#= f.password_field :password, autocomplete: "new-password" %>-->
+        <!--  <%# if @minimum_password_length %>-->
+        <!--    <br />-->
+        <!--    <em><#%= @minimum_password_length %> characters minimum</em>-->
+        <!--    <%# end %>-->
+        <!--</div>-->
+        
+        <div class="mb-4">
+          <%= f.label :password_confirmation, "パスワード確認", class: "text-secondary fw-bold mb-2" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control shadow-sm py-md-3" %>
+        </div>
+        
+        <!--<div class="field">-->
+        <!--  <%#= f.label :password_confirmation %><br />-->
+        <!--  <%#= f.password_field :password_confirmation, autocomplete: "new-password" %>-->
+        <!--</div>-->
+        
+         <div class="mb-4">
+            <%= f.label :zip_code, "郵便番号", class: "text-secondary fw-bold mb-2" %>
+            <!--<span class="p_required">必須</span>-->
+            <%= f.text_field :zip_code, class: "form-control shadow-sm py-md-3" %>
+          </div>
+          
+          <div class="text-center">
+            <%= f.submit "編集", class: "btn shadow-sm fw-bold mt-4 px-5 py-3" %>
+          </div>
+      <% end %>    
+  </div>
+</div>
+<%#= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
+
+  
+
+  <!--<%# if devise_mapping.confirmable? && resource.pending_reconfirmation? %>-->
+  <!--  <div>Currently waiting confirmation for: <%#= resource.unconfirmed_email %></div>-->
+  <!--<%# end %>-->
+
+  <!--<div class="field">-->
+  <!--  <%#= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />-->
+  <!--  <%#= f.password_field :password, autocomplete: "new-password" %>-->
+  <!--  <%# if @minimum_password_length %>-->
+  <!--    <br />-->
+  <!--    <em><%#= @minimum_password_length %> characters minimum</em>-->
+  <!--  <%# end %>-->
+  <!--</div>-->
+
+
+<h3>Cancel my account</h3>
+
+<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+
+<%= link_to "戻る", :back %>
