@@ -4,3 +4,31 @@
 乳腺炎は乳房の乳腺に炎症が生じる病気で、授乳期の女性に多く発症します。乳腺炎が発生しやすい時期は産後2〜3週間あたりで、発生頻度は2%〜33%程度です ...
   </div>
 </div>
+
+BreastCondition.create(
+  is_fever: params[:breast_condition][:is_fever],
+  is_breast_pain: params[:breast_condition][:is_breast_pain],
+  is_breast_redness: params[:breast_condition][:is_breast_redness],
+  is_breast_lump: params[:breast_condition][:is_breast_lump],
+  is_upper_limb_elevation: params[:breast_condition][:is_upper_limb_elevation],
+  is_systemic_symptoms: params[:breast_condition][:is_systemic_symptoms]
+  )
+breast_condition = BreastCondition.new
+  breast_condition.is_fever = params[:breast_condition][:is_fever]
+  breast_condition.is_breast_pain = params[:breast_condition][:is_breast_pain]
+  breast_condition.is_breast_redness = params[:breast_condition][:is_breast_redness]
+  breast_condition.is_breast_lump = params[:breast_condition][:is_breast_lump]
+  breast_condition.is_upper_limb_elevation = params[:breast_condition][:is_upper_limb_elevation]
+  breast_condition.is_systemic_symptoms = params[:breast_condition][:is_systemic_symptoms]
+  breast_condition.save
+  
+BreastCondition.create([
+ { is_fever: ture},
+ { is_breast_pain: ture},
+ { is_breast_redness: ture},
+ { is_breast_lump: ture},
+ { is_upper_limb_elevation: ture},
+ { is_systemic_symptoms: ture},
+ ]}
+ 
+  

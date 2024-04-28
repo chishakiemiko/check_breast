@@ -1,0 +1,43 @@
+<div class="container">
+  <!--<div class="warning-sublte p-2 text-dark bg-opacity-10 my-">-->
+ <div class="breast_condition-navigation">
+    <h2>チェックブレスト　結果</h2>
+      <!--<a href="/employees/new">新規作成</a>-->
+    <!--</div>-->
+    
+    <table>
+      <!-- テーブルのヘッダー -->
+      <tbody>
+        <tr>
+          <!--<th>チェック年月日</th>-->
+          <th>発熱</th>
+          <td><%= breast_condition.is_fever %></td>
+        </tr>
+        <tr>
+          <th>疼痛</th>
+          <td><%= breast_condition.is_breast_pain %></td>
+        </tr>
+        <tr>
+          <th>発赤</th>
+          <td><%= breast_condition.is_breast_redness %></td>
+        </tr>
+        <tr>
+          <th>しこり</th>
+          <td><%= breast_condition.is_breast_lump %></td>
+        </tr>
+          <th>上肢のつれ</th>
+          <td><%= breast_condition.is_upper_limb_elevation %></td>
+        </tr>
+        <tr>
+          <th>全身の症状</th>
+          <td><%= breast_condition.is_systemic_symptoms %></td>
+        </tr>
+          <!--<%# @breast_conditions.each do | breast_condition | %>-->
+              <!--<td><%#= breast_condition.created_at %></td>-->
+              
+              <!--<td><a href="/breast_condition/<%#= breast_condition.id %>">詳細情報</a></td>-->
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>

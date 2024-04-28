@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_18_115248) do
+ActiveRecord::Schema.define(version: 2024_04_20_215409) do
+
+  create_table "breast_conditions", charset: "utf8mb4", force: :cascade do |t|
+    t.boolean "is_fever", null: false
+    t.boolean "is_breast_pain", null: false
+    t.boolean "is_breast_redness", null: false
+    t.boolean "is_breast_lump", null: false
+    t.boolean "is_upper_limb_elevation", null: false
+    t.boolean "is_systemic_symptoms", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
