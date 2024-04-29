@@ -1,6 +1,6 @@
 <h2>診断結果</h2>
 
-<p><%#= @user.username %>さんの診断が完了しました。</p>
+<p><%= current_user.username %>さんの診断が完了しました。</p>
 
         <p>あなたは…</p>
         <div class="container">
@@ -59,4 +59,5 @@
         </div>
 
 
-<%= link_to 'チェック履歴に戻る', root_path %>
+<%= link_to 'ブレストチェック履歴をみる', breast_conditions_path %>
+<%= link_to 'トップに戻る', root_path %>
