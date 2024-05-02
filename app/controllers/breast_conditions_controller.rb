@@ -21,6 +21,7 @@ class BreastConditionsController < ApplicationController
 
   def create
     @breast_condition = BreastCondition.new(breast_condition_params)
+    
     # redirect_to breast_condition_path, notice: '乳腺炎チェック　結果が出力されました。'
     if @breast_condition.save
       # redirect_to root_path, notice: '乳腺炎チェック　結果が出力されました。'
@@ -37,9 +38,29 @@ class BreastConditionsController < ApplicationController
     @breast_condition = BreastCondition.find(params[:id])
   end
   
+  # def match_all_symptoms?
+  #     # ここにインスタンスメソッドの中身を書く
+  #     @breast_condition.is_fever == true && ( 
+  #                     @breast_condition.is_breast_pain == true || 
+  #                     @breast_condition.is_breast_redness == true || 
+  #                     @breast_condition.is_breast_lump == true ||
+  #                     @breast_condition.is_upper_limb_elevation == true) 
+  # end
+  
   private
   
   def breast_condition_params
     params.require(:breast_condition).permit(:is_fever, :is_breast_pain, :is_breast_redness, :is_breast_lump, :is_upper_limb_elevation, :is_systemic_symptoms).merge(user_id: current_user.id)
   end
+  
+  # class BreastCondition
+  #   def match_all_symptoms?
+  #     # ここにインスタンスメソッドの中身を書く
+  #     @breast_condition.is_fever == true && ( 
+  #                     @breast_condition.is_breast_pain == true || 
+  #                     @breast_condition.is_breast_redness == true || 
+  #                     @breast_condition.is_breast_lump == true ||
+  #                     @breast_condition.is_upper_limb_elevation == true) 
+  #   end
+  # end
 end

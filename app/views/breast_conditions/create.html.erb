@@ -4,14 +4,26 @@
 
         <p>あなたは…</p>
         <div class="container">
-          <!--<%# binding.pry %>-->
+          <%# binding.pry %>
                 <%# if @breast_condition.is_fever == true %>
-                <% if @breast_condition.is_fever == true && ( 
-                    @breast_condition.is_breast_pain == true || 
-                    @breast_condition.is_breast_redness == true || 
-                    @breast_condition.is_breast_lump == true ||
-                    @breast_condition.is_upper_limb_elevation == true) %>
-                   <div class ="result-mastitis">
+                <!--<%# if @breast_condition.is_fever == true && ( -->
+                <!--    @breast_condition.is_breast_pain == true || -->
+                <!--    @breast_condition.is_breast_redness == true || -->
+                <!--    @breast_condition.is_breast_lump == true ||-->
+                <!--    @breast_condition.is_upper_limb_elevation == true) %>-->
+                <!--   <div class ="result-mastitis">-->
+                <!--      <h2>乳腺炎の可能性があります</h6>-->
+                <!--       <h3>対処方法</h3>-->
+                <!--           <ul>-->
+                <!--               <li>冷やす</li>-->
+                <!--               <li>吸わせる回数を減らすまたはやめる。</li>-->
+                <!--               <li>痛いところを押したり揉んだりしない。</li>-->
+                <!--               <li>張ってきたら手で搾乳する。</li>-->
+                <!--           </ul>-->
+                <!--        <p>半日ほど経っても改善がなければ受診しましょう</p>-->
+                <!--   </div> -->
+                   <% if @breast_condition.match_all_conditions? %>
+                     <div class ="result-mastitis">
                       <h2>乳腺炎の可能性があります</h6>
                        <h3>対処方法</h3>
                            <ul>
@@ -22,27 +34,29 @@
                            </ul>
                         <p>半日ほど経っても改善がなければ受診しましょう</p>
                    </div> 
-                    
-                <% elsif( @breast_condition.is_fever == true && 
+                   
+                <%# elsif( @breast_condition.is_fever == true && 
                     @breast_condition.is_breast_pain == false && 
                     @breast_condition.is_breast_redness == false && 
                     @breast_condition.is_breast_lump == false &&
                     @breast_condition.is_upper_limb_elevation == false ) &&
                     @breast_condition.is_systemic_symptoms == true
                     %> 
+                <%elsif @breast_condition.suspected_infectious_disease? %>
                     <div class="result-infection-notmastitis">
                       <h6>乳腺炎の可能性は低いです</h6>
                       <p>他の原因で発熱している可能性が高いです。</p>
                       <p>内科など医療機関へご相談くださいませ。</p>
                     </div>
                     
-                <% elsif( @breast_condition.is_fever == false && 
+                <%# elsif( @breast_condition.is_fever == false && 
                     @breast_condition.is_breast_pain == false && 
                     @breast_condition.is_breast_redness == false && 
                     @breast_condition.is_breast_lump == false &&
                     @breast_condition.is_upper_limb_elevation == false ) &&
                     @breast_condition.is_systemic_symptoms == false
-                    %>     
+                    %>  
+                <% elsif @breast_condition.not_mastitis?%>
                     <div class="not-mastitis">
                       <h6>乳腺炎の可能性は低いです</h6>
                       <p>いつも通り授乳を続けで大丈夫です。</p>

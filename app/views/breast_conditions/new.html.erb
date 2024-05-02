@@ -127,43 +127,43 @@
     </div>
   </div>
   <!----5大症状が１つても該当する時に質問を追加する-->
-  <% if @breast_condition.is_fever == true || 
-        @breast_condition.is_breast_pain == true || 
-                    @breast_condition.is_breast_redness == true || 
-                    @breast_condition.is_breast_lump == true ||
-                    @breast_condition.is_upper_limb_elevation == true %>
-  <h6>乳腺炎の可能性があります</h6>
-   <div class="form-group">
-    <div class="is_elapsed_time form-input">
-    <p> '2-1.症状に最初気づいてから６時間以上が経過していますか？（必須）</p>
+  <!--<%# if @breast_condition.is_fever == true || -->
+  <!--      @breast_condition.is_breast_pain == true || -->
+  <!--                  @breast_condition.is_breast_redness == true || -->
+  <!--                  @breast_condition.is_breast_lump == true ||-->
+  <!--                  @breast_condition.is_upper_limb_elevation == true %>-->
+  <!--<h6>乳腺炎の可能性があります</h6>-->
+  <!-- <div class="form-group">-->
+  <!--  <div class="is_elapsed_time form-input">-->
+  <!--  <p> '2-1.症状に最初気づいてから６時間以上が経過していますか？（必須）</p>-->
     <!--<%#= f.label :is_systemic_symptoms, '6.風邪症状や寒気、だるさ、ありますか？（必須）' %>-->
-      <div>
-        <%= f.radio_button :is_elapsed_time, :true %>
-        <%= f.label :is_elapsed_time, 'はい', value: true %>
-      </div>
-      <div>
-        <%= f.radio_button :is_elapsed_time, :false %>
-        <%= f.label :is_elapsed_time, 'いいえ', value: false %>
-      </div>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="is_medication form-input">
-    <p> '2-2.症状が出てから今まで、解熱剤・痛み止めを内服しましか？（必須）</p>
+  <!--    <div>-->
+  <!--      <%#= f.radio_button :is_elapsed_time, :true %>-->
+  <!--      <%#= f.label :is_elapsed_time, 'はい', value: true %>-->
+  <!--    </div>-->
+  <!--    <div>-->
+  <!--      <%#= f.radio_button :is_elapsed_time, :false %>-->
+  <!--      <#%= f.label :is_elapsed_time, 'いいえ', value: false %>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+  <!--  <div class="is_medication form-input">-->
+  <!--  <p> '2-2.症状が出てから今まで、解熱剤・痛み止めを内服しましか？（必須）</p>-->
     <!--<%#= f.label :is_systemic_symptoms, '6.風邪症状や寒気、だるさ、ありますか？（必須）' %>-->
-      <div>
-        <%= f.radio_button :is_medication, :true %>
-        <%= f.label :is_medication, 'はい', value: true %>
-      </div>
-      <div>
-        <%= f.radio_button :is_medication, :false %>
-        <%= f.label :is_medication, 'いいえ', value: false %>
-      </div>
-    </div>
-  </div>
+  <!--    <div>-->
+  <!--      <%#= f.radio_button :is_medication, :true %>-->
+  <!--      <%#= f.label :is_medication, 'はい', value: true %>-->
+  <!--    </div>-->
+  <!--    <div>-->
+  <!--      <%#= f.radio_button :is_medication, :false %>-->
+  <!--      <#%= f.label :is_medication, 'いいえ', value: false %>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
   <!--</div>-->
 
-  <% end %>                
+  <%# end %>                
   <div class="form-submit">
     <%= f.submit "結果をみる", class: 'form-button' %>
   </div>
