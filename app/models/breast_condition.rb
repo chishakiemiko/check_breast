@@ -21,11 +21,11 @@ class BreastCondition < ApplicationRecord
   # validates :users_id
   
   def match_all_conditions?
-    self.is_fever  && (
-    self.is_breast_pain || 
-    self.is_breast_redness || 
-    self.is_breast_lump ||
-    self.is_upper_limb_elevation
+    is_fever  && (
+    is_breast_pain || 
+    is_breast_redness || 
+    is_breast_lump ||
+    is_upper_limb_elevation
       )
   end
   # def match_all_conditions?
@@ -39,12 +39,12 @@ class BreastCondition < ApplicationRecord
   
   def suspected_infectious_disease?
     (
-    self.is_fever && 
-    self.is_breast_pain && 
-    self.is_breast_redness && 
-    self.is_breast_lump &&
-    self.is_upper_limb_elevation == false ) &&
-    self.is_systemic_symptoms 
+    is_fever && 
+    is_breast_pain  == false && 
+    is_breast_redness  == false && 
+    is_breast_lump  == false &&
+    is_upper_limb_elevation == false ) &&
+    is_systemic_symptoms 
   end
   # def suspected_infectious_disease?
   #   (
@@ -58,12 +58,12 @@ class BreastCondition < ApplicationRecord
   
   def not_mastitis?
     ( 
-      self.is_fever == false && 
-      self.is_breast_pain == false && 
-      self.is_breast_redness == false && 
-      self.is_breast_lump == false &&
-      self.is_upper_limb_elevation == false ) &&
-      self.is_systemic_symptoms == false
+      is_fever == false && 
+      is_breast_pain == false && 
+      is_breast_redness == false && 
+      is_breast_lump == false &&
+      is_upper_limb_elevation == false ) &&
+      is_systemic_symptoms == false
   end
   # def not_mastitis?
   #   ( 
