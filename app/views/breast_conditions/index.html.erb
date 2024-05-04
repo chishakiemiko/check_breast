@@ -1,5 +1,56 @@
 <div class="container">
   <div class="warning-sublte p-2 text-dark bg-opacity-10 my-">
-   index画面
+ <div class="breast_condition-navigation">
+    <h2><%= current_user.username %>さんのチェックブレスト　履歴</h2>
+      <%= link_to '乳腺炎をチェックする', new_breast_condition_path %>
+    </div>
+    
+    <table>
+       
+          <% @breast_conditions&.each do | breast_condition | %>
+      
+              <thead>
+              <tr>
+                <th>日付</th>
+                <td><%= breast_condition.created_at.strftime("%Y/%m/%d %a %H:%M") %></td>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>項目</th>
+                  <th>結果</th>
+                </tr>
+              <tr>
+                <th>発熱</th>
+                <td><%= breast_condition.is_fever ? 'あり' : 'なし' %></td>
+              </tr>
+              <tr>
+                <th>疼痛</th>
+                <td><%= breast_condition.is_breast_pain ? 'あり' : 'なし' %></td>
+              </tr>
+              <tr>
+                <th>発赤</th>
+                <td><%= breast_condition.is_breast_redness ? 'あり' : 'なし' %></td>
+              </tr>
+              <tr>
+                <th>しこり</th>
+                <td><%= breast_condition.is_breast_lump  ? 'あり' : 'なし'%></td>
+              </tr>
+              <tr>
+                <th>上肢のつれ</th>
+                <td><%= breast_condition.is_upper_limb_elevation  ? 'あり' : 'なし'%></td>
+              </tr>
+              <tr>
+                <th>全身の症状</th>
+                <td><%= breast_condition.is_systemic_symptoms  ? 'あり' : 'なし'%></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td><%= link_to '詳細', breast_condition_path(breast_condition) %></td>
+              </tr>
+        </tbody>
+          <% end %>
+              <!--<a href="/breast_condition/<%#= breast_condition.id %>">詳細</a></td>-->
+    </table>
   </div>
 </div>
