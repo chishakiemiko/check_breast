@@ -47,9 +47,14 @@ test:
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
-#
+
 production:
   <<: *default
-  database: check_breast_production
-  username: check_breast
-  password: <%= ENV['CHECK_BREAST_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
+# production:
+#   <<: *default
+#   database: check_breast_production
+#   username: check_breast
+#   password: <%= ENV['CHECK_BREAST_DATABASE_PASSWORD'] %>
