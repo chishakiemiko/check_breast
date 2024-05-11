@@ -12,7 +12,6 @@ body {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
-  z-index:20;
 }
 
 .alert {
@@ -23,7 +22,6 @@ body {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
-  z-index:20;
 }
 
 .nav-item{
@@ -196,9 +194,9 @@ footer {
 }
 
 .btn-blue:hover {
-  background-color: #7454cf;
-  border-color: #7454cf;
-  color: white;
+  background-color: #8365FF;
+  border-color: #8365FF;
+  color: aliceblue;
 }
 
 .bg-blue {
@@ -215,6 +213,3 @@ footer {
 //   border-color: aliceblue;
 // }
 
-.nav {
-  z-index:10;
-}
