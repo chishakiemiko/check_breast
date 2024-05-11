@@ -1,16 +1,23 @@
 <div class="container">
   <!--<div class="warning-sublte p-2 text-dark bg-opacity-10 my-">-->
- <div class="breast_condition-navigation">
-    <h2>チェックブレスト　結果</h2>
+ <div class="breast_condition-navigation col-10 col-md-6">
+    <h2 class="shadow-sm">チェックブレスト　結果</h2>
       <!--<a href="/employees/new">新規作成</a>-->
     <!--</div>-->
     
-    <table>
+    <!--<table>-->
+    <table class="table table-bordered table-responsive mb-5" style="white-space: nowrap">
       <!-- テーブルのヘッダー -->
+        
+          <h5>チェック年月日</h5>
+          <%= @breast_condition.created_at.strftime('%Y/%m/%d') %>
+          <thead>
+            <tr>
+              <th>項目</th>
+              <td>回答</td>
+            </tr>
+          </thead>
       <tbody>
-        <tr>
-          <th>チェック年月日</th>
-          <td><%= @breast_condition.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
           <th>発熱</th>
           <td><%= @breast_condition.is_fever ? 'あり' : 'なし' %></td>
@@ -42,7 +49,7 @@
         </tbody>
     </table>
     
-    <div class="">
+    <div class="breast_condition-navigation" style="font-weight:bold;">
       <ul>
       <li><%= link_to '診断する', new_breast_condition_path %></li>
       <li><%= link_to '履歴をみる', breast_conditions_path %></li>

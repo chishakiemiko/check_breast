@@ -1,47 +1,45 @@
-<nav class="navbar navbar-expand-md shadow-sm" style="background-color:#1b435d;">
+<nav class="navbar navbar-expand-md shadow-sm mb-5 bg-blue">
   <div class="container">
-    <!--<div class="header__nav navbar-nav me-auto mb-2 mb-lg-0">-->
-    <div class="w-100 d-flex justify-content-between align-items-center">
+    <!--<nav class="navbar navbar-expand-lg bg-body-tertiary">-->
+    <!--<div class="w-100 d-flex justify-content-between align-items-center">-->
       <%= link_to root_path, data: { turbolinks: false } do %>
-        <%= image_tag 'logo.png',alt: 'Logo' ,class: 'img_fluid', width: "180px" %>
+        <%= image_tag 'logo.png',alt: 'Logo' ,class: 'navbar-brand img_fluid', width: "240px" %>
       <% end %>
       <!--<ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color: aliceblue;">
+      <!--<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">-->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
-        <ul class="nav nav-pills flex-column flex-sm-row">
-          
+        <ul class="nav justify-content-end">
+        <!--<ul class="navber-nav me-auto flex-column flex-sm-row">-->
           <li class="nav-item">
-            <%= link_to '乳腺炎チェックする', new_breast_condition_path, class: 'link-underline-light link-offset-2 fs-6 pe-2 mt-3',data: { turbolinks: false },style: 'color: aliceblue;'%>
-            <!--<a class="link-underline-light link-offset-2" href="#"style="color: aliceblue;" >ログイン</a>-->
+            <%= link_to 'アカウント編集', edit_user_registration_path, class: ' link-underline-light link-offset-2 fs-6 pe-2 mt-3',data: { turbolinks: false },style: 'color: aliceblue;'%>
           </li>
           <li class="nav-item">
-            <%= link_to 'アカウント編集', edit_user_registration_path, class: 'link-underline-light link-offset-2 fs-6 pe-2 mt-3',data: { turbolinks: false },style: 'color: aliceblue;'%>
-            <!--<a class="link-underline-light link-offset-2" href="#"style="color: aliceblue;" >ログイン</a>-->
+            <%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: ' link-underline-light link-offset-2 fs-6 pe-2 mt-3', style: 'color: aliceblue;'%>
           </li>
           <li class="nav-item">
-            <%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: 'link-underline-light link-offset-2 fs-6 pe-2 mt-3', style: 'color: aliceblue;'%>
-            <%# link_to 'ログアウト', root_path, method: :delete %>
-            <%# button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'link-underline-light link-offset-2 fs-6 pe-2 mt-3'%>
-            <!--<a class="link-underline-light link-offset-2" href="#"style="color: aliceblue;" >ログイン</a>-->
+            <span class="nav-link nav__username " style="color:white;">ユーザーネーム：<%= current_user.username %>さん</span>
           </li>
           <li class="nav-item">
-            <span class="nav__username " style="color:white;">ユーザーネーム：<%= current_user.username %>さん</span>
-            <%#= link_to new__path, class: "btn btn-purple me-5 px-md-3 py-md-2", data: { turbolinks: false } do %>
-              <!--<a href="#" class="fs-6 pe-2 mt-3">乳腺炎チェックする</a>-->
-            <%# end %>
+            <%= link_to '乳腺炎チェックする', new_breast_condition_path, class: ' btn btn-orange link-offset-2 fs-6 pe-2 mt-3',data: { turbolinks: false },style: 'color: aliceblue;'%>
           </li>
         </ul>
       <% else %>
-        <ul class="nav nav-pills flex-column flex-sm-row">
+        <ul class="navber-nav mr-auto">
+        <!--<ul class="navber-nav me-auto flex-column flex-sm-row">-->
           <li class="nav-item">
-            <%= link_to '新規登録', new_user_registration_path, class: 'link-underline-light link-offset-2 fs-6 pe-2 mt-3', data: { turbolinks: false }, style: 'color: aliceblue;'%>
-            <!--<a class="link-underline-light link-offset-2" href="#"style="color: aliceblue;" >ログイン</a>-->
+            <%= link_to '新規登録', new_user_registration_path, class: ' link-underline-light link-offset-2 fs-6 pe-2 mt-3', data: { turbolinks: false }, style: 'color: aliceblue;'%>
           </li>
           <li class="nav-item">
-            <%= link_to 'ログイン', new_user_session_path, class: 'link-underline-light link-offset-2 fs-6 pe-2 mt-3', data: { turbolinks: false } , style: 'color: aliceblue;'%>
-            <!--<a class="link-underline-light link-offset-2" href="#"style="color: aliceblue;" >ログイン</a>-->
+            <%= link_to 'ログイン', new_user_session_path, class: ' link-underline-light link-offset-2 fs-6 pe-2 mt-3', data: { turbolinks: false } , style: 'color: aliceblue;'%>
           </li>
         </ul>
+        </div>
       <% end %>
+      </div>
     </div>
   </div>
-</nav>
+</nav>s

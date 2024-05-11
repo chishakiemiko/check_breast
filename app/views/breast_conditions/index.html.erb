@@ -1,56 +1,63 @@
 <div class="container">
-  <div class="warning-sublte p-2 text-dark bg-opacity-10 my-">
- <div class="breast_condition-navigation">
-    <h2><%= current_user.username %>さんのチェックブレスト　履歴</h2>
-      <%= link_to '乳腺炎をチェックする', new_breast_condition_path %>
-    </div>
-    
-    <table>
-       
-          <% @breast_conditions&.each do | breast_condition | %>
+  <div class="warning-sublte p-2 text-dark bg-opacity-10 col-10 col-md-6">
+    <h2 class="shadow-sm"><%= current_user.username %>さんのチェック履歴</h2>
+    <!--<div class="breast_condition-navigation">-->
+    <!--  <%#= link_to '乳腺炎をチェックする', new_breast_condition_path %>-->
+    <!--</div>-->
+    <% if @breast_conditions.empty? %>
+      <p class="fs-4" style="height:400px;">乳腺炎チェック履歴はありません</p>
+    <% end %>
+    <% @breast_conditions&.each do | breast_condition | %>
+    <table class="table table-bordered table-responsive mb-5" style="white-space: nowrap">
+      <!--<tr>-->
+        <div class="text-start">
+          <%= breast_condition.created_at.strftime("%Y/%m/%d %a %H:%M") %>
+        </div>
+        <div class="text-end text-blue">
+          <%= link_to '詳細', breast_condition_path(breast_condition) %>
+        </div>
+      <thead>
+          <tr>
+            <th>項目</th>
+            <th>結果</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>発熱</th>
+          <td><%= breast_condition.is_fever ? 'あり' : 'なし' %></td>
+        </tr>
+        <tr>
+          <th>疼痛</th>
+          <td><%= breast_condition.is_breast_pain ? 'あり' : 'なし' %></td>
+        </tr>
+        <tr>
+          <th>発赤</th>
+          <td><%= breast_condition.is_breast_redness ? 'あり' : 'なし' %></td>
+        </tr>
+        <tr>
+          <th>しこり</th>
+          <td><%= breast_condition.is_breast_lump  ? 'あり' : 'なし'%></td>
+        </tr>
+        <tr>
+          <th>上肢のつれ</th>
+          <td><%= breast_condition.is_upper_limb_elevation  ? 'あり' : 'なし'%></td>
+        </tr>
+        <tr>
+          <th>全身の症状</th>
+          <td><%= breast_condition.is_systemic_symptoms  ? 'あり' : 'なし'%></td>
+        </tr>
+      </tbody>
       
-              <thead>
-              <tr>
-                <th>日付</th>
-                <td><%= breast_condition.created_at.strftime("%Y/%m/%d %a %H:%M") %></td>
-              </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th>項目</th>
-                  <th>結果</th>
-                </tr>
-              <tr>
-                <th>発熱</th>
-                <td><%= breast_condition.is_fever ? 'あり' : 'なし' %></td>
-              </tr>
-              <tr>
-                <th>疼痛</th>
-                <td><%= breast_condition.is_breast_pain ? 'あり' : 'なし' %></td>
-              </tr>
-              <tr>
-                <th>発赤</th>
-                <td><%= breast_condition.is_breast_redness ? 'あり' : 'なし' %></td>
-              </tr>
-              <tr>
-                <th>しこり</th>
-                <td><%= breast_condition.is_breast_lump  ? 'あり' : 'なし'%></td>
-              </tr>
-              <tr>
-                <th>上肢のつれ</th>
-                <td><%= breast_condition.is_upper_limb_elevation  ? 'あり' : 'なし'%></td>
-              </tr>
-              <tr>
-                <th>全身の症状</th>
-                <td><%= breast_condition.is_systemic_symptoms  ? 'あり' : 'なし'%></td>
-              </tr>
-              <tr>
-                <th></th>
-                <td><%= link_to '詳細', breast_condition_path(breast_condition) %></td>
-              </tr>
-        </tbody>
-          <% end %>
+    <% end %>
+    <%# end %>
               <!--<a href="/breast_condition/<%#= breast_condition.id %>">詳細</a></td>-->
     </table>
+  </div>
+  
+  <div class="breast_condition-navigation" style="font-weight:bold;">
+    <%#= link_to '乳腺炎をチェックする', new_breast_condition_path %>
+    <%= link_to '乳腺炎チェックする', new_breast_condition_path, class: 'btn btn-orange link-offset-2 fs-6 pe-2 mt-3',data: { turbolinks: false },style: 'color: aliceblue;'%>
+    <%= link_to 'トップに戻る', root_path, class: 'p-4', style: 'color:#1b435d;' %>
   </div>
 </div>
