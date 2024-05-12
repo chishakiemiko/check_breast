@@ -29,14 +29,6 @@ body {
 }
 
 
-
-a {
-  // font-weight: bold;
-  // color: #1355b4;
-  // text-decoration: none;
-}
-
-
 .form__errors {
   padding: 15px;
   margin-bottom: 20px;
@@ -49,14 +41,8 @@ a {
 
 .main {
   margin-top: 40px;
-
-  // &__content {
-  //   margin: 0 auto;
-  //   max-width: 800px;
-
-    
   }
-// }
+
 .logo {
   width:180px;
   height:50px;
@@ -182,10 +168,6 @@ footer {
   color: #1b435d;
 }
 
-// .btn-outline-lightbrue {
-//   color: #78bbe6;
-// }
-
 .btn-blue {
   background: #1b435d;
   border-style: solid;
@@ -209,7 +191,4 @@ footer {
   background-color: aliceblue;
 }
 
-// .navbar-toggler-icon {
-//   border-color: aliceblue;
-// }
 
