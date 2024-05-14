@@ -1,3 +1,9 @@
+body {
+  font-size: 14px;
+  color: #575f74;
+  font-family: arial, sans-serif;
+}
+
 .notice {
   padding: 15px;
   margin-bottom: 20px;
@@ -21,3 +27,168 @@
 .nav-item{
   padding: 10px;
 }
+
+
+.form__errors {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.main {
+  margin-top: 40px;
+  }
+
+.logo {
+  width:180px;
+  height:50px;
+}
+
+.form {
+  margin: 40px 0 25px;
+
+  &__group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 10px 16px;
+    margin: 8px 0;
+
+    &:focus-visible {
+      outline: -webkit-focus-ring-color auto 1px;
+    }
+
+    &.form__textarea {
+      height: 240px;
+    }
+  }
+  
+  &__file {
+    margin: 8px 0;
+  }
+
+  &__submit {
+    text-align: center;
+    padding-top: 15px;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  &__button {
+    border-radius: 4px;
+    padding: 10px 30px;
+    text-align: center;
+  }
+}
+
+.footer {
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  margin-top: 70px;
+  padding: 6px;
+  width: 100%;
+
+  &__text {
+    color: #595c5f;
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+footer {
+  margin-top: auto;
+}
+
+.box-shadow {
+  box-shadow: 0px 0px 10px #d6d8f5;
+}
+
+.text-main {
+  color: #f99f48;
+}
+
+.text-orange {
+  color: #f99f48;
+}
+
+.btn-orange {
+  background: #f99f48;
+  border-style: solid;
+  border-color: #f99f48F;
+  color: white;
+}
+
+.btn-orange:hover {
+  background-color: #8365FF;
+  border-color: #8365FF;
+  color: #f99f48;
+  border: 1px solid #8365FF;
+}
+
+.bg-orange {
+  background: #f99f48;
+}
+
+.text-lightbrue {
+  color: #78bbe6;
+}
+
+.btn-lightbrue {
+  background: #78bbe6;
+  border-style: solid;
+  border-color: #78bbe6;
+  color: white;
+}
+
+.btn-brue:hover {
+  background-color: #8365FF;
+  border-color: #8365FF;
+  color: white;
+}
+
+.bg-lightbrue {
+  background: #8365FF;
+}
+
+.text-blue {
+  color: #1b435d;
+}
+
+.btn-blue {
+  background: #1b435d;
+  border-style: solid;
+  border-color: #1b435d;
+  color: white;
+}
+
+.btn-blue:hover {
+  background-color: #8365FF;
+  border-color: #8365FF;
+  color: aliceblue;
+}
+
+.bg-blue {
+  background: #1b435d;
+}
+
+
+.navbar-toggler{
+  border-color: aliceblue;
+  background-color: aliceblue;
+}
+
+

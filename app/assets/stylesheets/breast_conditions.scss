@@ -2,12 +2,55 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-main {
-height: 900px;  
-} 
 
 .logo {
   width:180px;
   height:50px;
 }
 
+h2 {
+  padding: 20px;
+  margin-bottom: 1em;
+  text-align: center;
+  color: #1b435d;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px  #8365FF;
+    }
+
+h5 {
+  padding-top: 1em;
+  color: #1b435d;
+  font-weight: bold;
+}  
+p {
+  line-height: 2em;
+}
+
+li {
+  line-height: 2em;
+}
+
+.form {
+  margin-left: 2em;
+}
+
+.form-group {
+  padding-bottom: 1em;
+}
+
+.table {
+  border: 1px solid #333;
+}
+
+
+.breast_workaround {
+box-shadow: 0px 0px 15px 0px rgba(98,98,98,0.8); /*影の指定*/
+padding:15px;
+margin:20px;
+border-radius: 6px; 
+}
+
+.breast_workaround p {
+margin:0;
+padding:0;
+}
