@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_20_215409) do
+ActiveRecord::Schema.define(version: 2024_05_17_220744) do
 
   create_table "breast_conditions", charset: "utf8mb4", force: :cascade do |t|
     t.boolean "is_fever", null: false
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2024_04_20_215409) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_elapsed_time", null: false
+    t.boolean "is_medication", null: false
     t.index ["user_id"], name: "index_breast_conditions_on_user_id"
   end
 

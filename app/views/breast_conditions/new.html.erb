@@ -3,21 +3,21 @@
 <%= form_with model: @breast_condition, local: true, class: 'form' do |f| %>
   <div class="form-group">
     <div class="is_fever form-input">
-    <p>1.発熱はありますか？（必須)</p>
-    <div>
-      <%= f.radio_button :is_fever, :true %>
-      <%= f.label :is_fever, 'はい', value: true %>
+      <p>1.発熱はありますか？（必須)</p>
+      <div>
+        <%= f.radio_button :is_fever, :true %>
+        <%= f.label :is_fever, 'はい', value: true %>
+      </div>
+      <div>
+        <%= f.radio_button :is_fever, :false %>
+        <%= f.label :is_fever, 'いいえ', value: false %>
+      </div>
     </div>
-    <div>
-      <%= f.radio_button :is_fever, :false %>
-      <%= f.label :is_fever, 'いいえ', value: false %>
-    </div>
-  </div>
   </div>
   
   <div class="form-group">
     <div class="is_breast_pain form-input">
-    <p>2.乳房に痛いところはありますか？（必須）</p>
+      <p>2.乳房に痛いところはありますか？（必須）</p>
       <div>
         <%= f.radio_button :is_breast_pain, :true %>
         <%= f.label :is_breast_pain, 'はい', value: true %>
@@ -31,7 +31,7 @@
   
   <div class="form-group">
     <div class="is_breast_redness form-input">
-    <p>3.乳房に赤いところはありますか？（必須）</p>
+      <p>3.乳房に赤いところはありますか？（必須）</p>
       <div>
         <%= f.radio_button :is_breast_redness, :true %>
         <%= f.label :is_breast_redness, 'はい', value: true %>
@@ -45,7 +45,7 @@
 
   <div class="form-group">
     <div class="is_breast_lump form-input">
-    <P>4.しこり（部分的に硬いところ）はありますか？（必須）</p>
+      <P>4.しこり（部分的に硬いところ）はありますか？（必須）</p>
       <div>
         <%= f.radio_button :is_breast_lump, :true %>
         <%= f.label :is_breast_lump, 'はい', value: true %>
@@ -59,7 +59,7 @@
   
   <div class="form-group">
     <div class="is_upper_limb_elevation form-input">
-    <P>5.乳房の症状がある側の手を挙げるとつっぱりますが？（必須）</p>
+      <P>5.乳房の症状がある側の手を挙げるとつっぱりますが？（必須）</p>
       <div>
         <%= f.radio_button :is_upper_limb_elevation, :true %>
         <%= f.label :is_upper_limb_elevation, 'はい', value: true %>
@@ -74,7 +74,7 @@
 
   <div class="form-group">
     <div class="is_systemic_symptoms form-input">
-    <p>6.風邪症状や寒気、だるさ、ありますか？（必須）</p>
+      <p>6.風邪症状や寒気、だるさ、ありますか？（必須）</p>
       <div>
         <%= f.radio_button :is_systemic_symptoms, :true %>
         <%= f.label :is_systemic_symptoms, 'はい', value: true %>
@@ -85,6 +85,35 @@
       </div>
     </div>
   </div>
+  
+  <div class="form-group">
+    <div class="is_fever form-input">
+      <p>7.症状が出てきて6時間以上経ってますか？（必須)</p>
+      <div>
+        <%= f.radio_button :is_elapsed_time, :true %>
+        <%= f.label :is_elapsed_time, 'はい', value: true %>
+      </div>
+      <div>
+        <%= f.radio_button :is_elapsed_time, :false %>
+        <%= f.label :is_elapsed_time, 'いいえ', value: false %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="is_fever form-input">
+      <p>8.何かお薬は飲みましたか？（必須)</p>
+      <div>
+        <%= f.radio_button :is_medication, :true %>
+        <%= f.label :is_medication, 'はい', value: true %>
+      </div>
+      <div>
+        <%= f.radio_button :is_medication, :false %>
+        <%= f.label :is_medication, 'いいえ', value: false %>
+      </div>
+    </div>
+  </div>
+  
   <div class="form-submit">
     <%= f.submit "結果をみる", class: "btn btn-blue shadow-sm fw-bold mt-4 px-5 py-2 color:#78bbe6 " %>
         </div>

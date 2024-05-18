@@ -32,7 +32,7 @@ class BreastConditionsController < ApplicationController
   private
   
   def breast_condition_params
-    params.require(:breast_condition).permit(:is_fever, :is_breast_pain, :is_breast_redness, :is_breast_lump, :is_upper_limb_elevation, :is_systemic_symptoms).merge(user_id: current_user.id)
+    params.require(:breast_condition).permit(:is_fever, :is_breast_pain, :is_breast_redness, :is_breast_lump, :is_upper_limb_elevation, :is_systemic_symptoms,:is_elapsed_time,:is_medication).merge(user_id: current_user.id)
   end
 
 end
