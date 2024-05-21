@@ -9,11 +9,11 @@
       <h2>乳腺炎の可能性があります</h6>
       <% if @breast_condition.medication_elapsed_time? %>
         <%= render 'seeadoctor' %>
-      <% else%>
-       <%= render 'treatment' %>
+      <% else %>
+        <%= render 'treatment' %>
         <p><span class="fs-6 fw-bold pb-4">半日ほど経っても改善がなければ受診しましょう</span></p>
       <% end %>
-  <%elsif @breast_condition.suspected_infectious_disease? %>
+  <% elsif @breast_condition.suspected_infectious_disease? %>
     <div class="result-infection-notmastitis" style="height: 600px;">
       <h2>乳腺炎の可能性は低いです</h2>
       <p><span class="fs-6 fw-bold">他の原因で発熱している可能性があります。</span></p>
