@@ -192,3 +192,8 @@ footer {
 }
 
 
+@media screen and (max-width: 480px) {
+  .footer {
+    display: block; 
+  }
+}

@@ -7,6 +7,8 @@ class BreastCondition < ApplicationRecord
   validates :is_breast_lump, inclusion: {in: [true, false]}
   validates :is_upper_limb_elevation,inclusion: {in: [true, false]} 
   validates :is_systemic_symptoms, inclusion: {in: [true, false]}
+  validates :is_elapsed_time, inclusion: {in: [true, false]}
+  validates :is_medication, inclusion: {in: [true, false]}
   
   def match_all_conditions?
     is_fever  && (
@@ -28,12 +30,17 @@ class BreastCondition < ApplicationRecord
   end
   
   def not_mastitis?
-    ( 
       is_fever == false && 
       is_breast_pain == false && 
       is_breast_redness == false && 
       is_breast_lump == false &&
-      is_upper_limb_elevation == false ) &&
+      is_upper_limb_elevation == false &&
       is_systemic_symptoms == false
   end
+  
+  def medication_elapsed_time?
+    is_elapsed_time ||
+    is_medication
+  end
+  
 end
